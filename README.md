@@ -1,5 +1,19 @@
 # README
 
+###https://tranquil-harbor-28747.herokuapp.com/
+
+
+Usuario normal con perfil diferente le aparecera en la barra izquierda opciones especiales.
+User:	heraldo.huerta@gmail.com
+Pass:	123456
+	
+
+
+Acceso al panel de administración:  https://tranquil-harbor-28747.herokuapp.com/admin
+Usuario admin:  email: 'admin@example.com', password: 'password'
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
