@@ -10,7 +10,8 @@ Pass:	123456
 
 
 Acceso al panel de administración:  https://tranquil-harbor-28747.herokuapp.com/admin
-Usuario admin:  email: 'admin@example.com', password: 'password'
+  email: 'admin@example.com'
+  password: 'password'
 
 
 
