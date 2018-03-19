@@ -1,0 +1,13 @@
+<%= form_with(model: @companie,  html: { class: 'form-horizontal' }) do |f| %>
+  <fieldset>
+    <div class="form-group">
+      <%= f.label :nombre, class: 'col-lg-2 control-label' %>
+      <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: 'Título del post' %>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <%= f.submit 'Confirmar', class: 'btn btn-primary' %>
+      </div>
+   </div>
+  </fieldset>
+<% end %>

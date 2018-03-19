@@ -1,0 +1,8 @@
+<tr id='<%= @companie.id %>'>
+    <td><h2 id="empresa<%= @companie.id %>"> <%= @companie.name %></h2></td>
+    <td>
+      <%= link_to 'Editar', edit_company_path(@companie),  data: {remote: true },class: 'btn btn-xs btn-primary text-white' %>
+      <%= link_to 'Detalle', company_claims_path(@companie),  class: 'btn btn-xs btn-success' %>
+      <%= link_to 'Eliminar', company_path(@companie), method: :delete, data: { confirm: 'Estás seguro que deseas eliminar La empresa?', remote: true }, class: 'btn btn-xs btn-danger' %>
+    </td>
+</tr>

@@ -1,2 +1,55 @@
-<h1>Companies#index</h1>
-<p>Find me in app/views/companies/index.html.erb</p>
+<div class="row">
+	<div class="col-md-4">
+		<div class="well well-sm">
+			<legend>Creación de Empesas:</legend>
+			<%= form_with(models: Company.new ,html: { class: 'form-horizontal' }) do |f| %>
+				<div class="form-group">
+					<div class="col-md-12">
+						<%= f.text_area :name, placeholder: 'Escribe nombre de la empresa.', class: 'form-control' %>
+					</div>
+				</div>
+				<%= f.submit 'Ingresar', class: 'btn btn-primary' %>
+			<% end %>
+		</div>
+	</div>
+
+
+	<div class="col-md-8" >
+		<table id="empresas">
+			<tr>
+				<th>Nombre</th>
+				<th>Opciones</th>
+			</tr>
+		<% @companies.each do |e| %>
+			<tr id='<%= e.id %>'>
+					<td><h2 id="empresa<%= e.id %>"> <%= e.name %></h2></td>
+					<td>
+					  <%= link_to 'Editar', edit_company_path(e),  data: {remote: true },class: 'btn btn-xs btn-primary text-white' %>
+						<%= link_to 'Detalle', company_claims_path(e),  class: 'btn btn-xs btn-success text-white' %>
+						<%= link_to 'Eliminar', company_path(e), method: :delete, data: { confirm: 'Estás seguro que deseas eliminar La empresa?', remote: true }, class: 'btn btn-xs btn-danger text-white' %>
+					</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar Empresa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="form_edit">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

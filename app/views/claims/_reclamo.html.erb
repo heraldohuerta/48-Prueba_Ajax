@@ -1,0 +1,10 @@
+<div class="well well-sm" id="<%= @claim.id %>">
+  <strong><%= @claim.user.email %>:</strong>
+  <br>
+  <div id='contenido<%= @claim.id %>'>
+    <%= @claim.comment %>
+  </div>
+  <div class="text-right">
+    <%= link_to 'Eliminar', company_claim_path(@companie.id,@claim), method: :delete, data: { confirm: 'Estás seguro que deseas eliminar el Comentario?', remote: true }, class: 'btn btn-xs btn-danger' %>
+  </div>
+</div>

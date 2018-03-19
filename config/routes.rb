@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
 
+
+
+  resources :companies do
+		resources :claims
+	end
+
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {
@@ -10,6 +17,7 @@ Rails.application.routes.draw do
 
 
 get 'companies/index'
+get 'claims/index'
 
 root to: "companies#index"
 

@@ -1,0 +1,36 @@
+<h1>
+<div class="bg-info text-white text-center ">
+  	 <%= @companie.name %>
+</div>
+</h1>
+<div class="row">
+	<div class="col-md-4">
+		<div class="well well-sm">
+			<legend>Reclamos a la compañia:</legend>
+			<%= form_with(model: [@companie, Claim.new],   html: { class: 'form-horizontal' }) do |f| %>
+				<div class="form-group">
+					<div class="col-md-12">
+						<%= f.text_area :comment, placeholder: 'Escribe tu comentario aquí...', class: 'form-control' %>
+					</div>
+				</div>
+				<%= f.submit 'Generar Reclamo', class: 'btn btn-primary' %>
+			<% end %>
+
+		</div>
+	</div>
+
+	<div class="col-md-8" id="reclamo">
+		<% @claims.each do |claim| %>
+			<div class="well well-sm" id="reclamo<%= claim.id %>">
+				<strong><%= claim.user.email %>:</strong>
+				<br>
+				<div id='<%= claim.id %>'>
+					<%= claim.comment %>
+				</div>
+				<div class="text-right">
+					<%= link_to 'Eliminar', company_claim_path(@companie,claim), method: :delete, data: { confirm: 'Estás seguro que deseas eliminar el Comentario?', remote: true }, class: 'btn btn-xs btn-danger' %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
